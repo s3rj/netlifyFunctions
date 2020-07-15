@@ -1,7 +1,7 @@
 // functions/twilioHandler.js
 
 'use strict'
-const serverless = require('serverless-http');
+const serverless = require('../node_modules/serverless-http');
 const express = require('express');
 const app = express();
 const { urlencoded } = require('body-parser');
