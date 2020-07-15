@@ -1,5 +1,9 @@
 {
-  "devDependencies": {},
+  "devDependencies": {
+  	    "express": "^4.17.1",
+    "firebase": "^7.16.0",
+    "serverless-http": "^2.5.0"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "firebase": "^7.16.0",
