@@ -1,5 +1,5 @@
 // functions/twilioHandler.js
-
+console.log(process.env.FIREBASE_MESSAGING_SENDER_ID);
 'use strict'
 const serverless = require('../node_modules/serverless-http');
 const express = require('express');
@@ -55,20 +55,7 @@ app.post('/sms', (request, response) => {
     clickCount: request.body.Body
   });
  
-  // response.type('text/xml');
-  // // TODO
-  // // Edit the TwiML here to send a Message in response to the incoming SMS
-  // // Make sure to specify the `action` attribute on the <Message> tag! There's
-  // // another route below this one you'll need to configure to receive status
-  // // updates and print out the data Twilio sends you. You can use relative
-  // // paths for the action attribute, such as /status
-  // response.send(`
-  //   <Response>
-  //     <Message action="/status">
-  //       Hello!
-  //     </Message>
-  //   </Response>
-  // `);
+ 
 });
 
 // Create a route to handle the status update
