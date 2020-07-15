@@ -28,7 +28,7 @@ database.ref().on("value", function(snapshot) {
   //$("#click-value").text(snapshot.val().clickCount);
 
     // Then update the clickCounter variable with data from the database.
-  clickCounter = snapshot.val().clickCount;
+  var clickCounter = snapshot.val().clickCount;
 
     // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
     }, function(errorObject) {
