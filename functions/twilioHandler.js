@@ -41,7 +41,7 @@ database.ref().on("value", function(snapshot) {
 
 // Set up our express web application
 //const PORT = 8767;
-const app = express();
+//const app = express();
 app.use(urlencoded({ extended: false }));
 
 // Create a route to handle incoming SMS messages
