@@ -1,7 +1,7 @@
 // functions/twilioHandler.js
 
 
-const serverless = require('./serverless-http');
+const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
 const { urlencoded } = require('body-parser');
@@ -85,7 +85,7 @@ app.post('/status', request => {
   //console.log('Did you uncomment the log statements above me?');
 });
 
-app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
+//app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
 
 
 module.exports = app;
