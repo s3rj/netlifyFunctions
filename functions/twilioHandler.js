@@ -1,8 +1,9 @@
 // functions/twilioHandler.js
 
 
-const serverless = require('serverless-http');
+const serverless = require('./serverless-http');
 const express = require('express');
+const app = express();
 const { urlencoded } = require('body-parser');
 const firebase = require('firebase');
 
@@ -39,7 +40,7 @@ database.ref().on("value", function(snapshot) {
 
 
 // Set up our express web application
-const PORT = 8767;
+//const PORT = 8767;
 const app = express();
 app.use(urlencoded({ extended: false }));
 
@@ -84,7 +85,7 @@ app.post('/status', request => {
   //console.log('Did you uncomment the log statements above me?');
 });
 
-
+app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
 
 
 module.exports = app;
