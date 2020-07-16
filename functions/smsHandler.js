@@ -1,5 +1,5 @@
 // functions/twilioHandler.js
-console.log(process.env.FIREBASE_MESSAGING_SENDER_ID);
+
 'use strict'
 const serverless = require('../node_modules/serverless-http');
 const express = require('express');
