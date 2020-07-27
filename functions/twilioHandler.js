@@ -4,6 +4,7 @@ console.log(process.env.FIREBASE_MESSAGING_SENDER_ID);
 const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
+const router = express.Router();
 const { urlencoded } = require('body-parser');
 const firebase = require('firebase');
 
@@ -75,7 +76,7 @@ router.post('/status', request => {
   //console.log('Did you uncomment the log statements above me?');
 });
 
-const router = express.Router();
+
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.write('<h1>Hello from Express.js!</h1>');
