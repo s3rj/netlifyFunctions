@@ -38,6 +38,7 @@ var config = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
+
 firebase.initializeApp(config);
 var database = firebase.database();
 
@@ -55,13 +56,15 @@ router.post('/sms', (request, response) => {
 
   
 
-  database.ref().set({
-    clickCount: request.body.Body
-  });
+
   response.send(`
     <Response>
     </Response>
-  `);
+  `)
+  .then(  database.ref().set({
+    clickCount: request.body.Body
+  }))
+  ;
  
 });
 
