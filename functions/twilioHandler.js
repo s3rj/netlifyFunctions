@@ -45,7 +45,7 @@ database.ref().on("value", function(snapshot) {
 app.use(urlencoded({ extended: false }));
 
 // Create a route to handle incoming SMS messages
-app.post('/sms', (request, response) => {
+router.post('/sms', (request, response) => {
   console.log(
     `Incoming message from ${request.body.From}: ${request.body.Body}`
   );
@@ -62,7 +62,7 @@ app.post('/sms', (request, response) => {
 });
 
 // Create a route to handle the status update
-app.post('/status', request => {
+router.post('/status', request => {
   console.log('Status update received');
   // TODO
   // This is your status callback handler URL. When you receive a status 
