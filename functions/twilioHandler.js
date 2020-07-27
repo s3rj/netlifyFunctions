@@ -23,7 +23,7 @@ var database = firebase.database();
 database.ref().on("value", function(snapshot) {
 
     // Then we console.log the value of snapshot
-  console.log(snapshot.val());
+  console.log('!'+snapshot.val());
 
     // Then we change the html associated with the number.
   //$("#click-value").text(snapshot.val().clickCount);
