@@ -75,7 +75,7 @@ app.post('/status', request => {
   //console.log('Did you uncomment the log statements above me?');
 });
 
-//app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
+app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
 
 
 module.exports = app;
