@@ -20,23 +20,23 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 //fb snapshot
-database.ref().on("value", function(snapshot) {
+// database.ref().on("value", function(snapshot) {
 
-    // Then we console.log the value of snapshot
-  console.log('!'+snapshot.val());
+//     // Then we console.log the value of snapshot
+//   console.log(+snapshot.val());
 
-    // Then we change the html associated with the number.
-  //$("#click-value").text(snapshot.val().clickCount);
+//     // Then we change the html associated with the number.
+//   //$("#click-value").text(snapshot.val().clickCount);
 
-    // Then update the clickCounter variable with data from the database.
-  var clickCounter = snapshot.val().clickCount;
+//     // Then update the clickCounter variable with data from the database.
+//   //var clickCounter = snapshot.val().clickCount;
 
-    // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-    }, function(errorObject) {
+//     // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+//     }, function(errorObject) {
 
-    // In case of error this will print the error
-  console.log("The read failed: " + errorObject.code);
-});
+//     // In case of error this will print the error
+//   console.log("The read failed: " + errorObject.code);
+// });
 //
 
 
