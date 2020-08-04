@@ -5,7 +5,7 @@ const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
 const router = express.Router();
-const { urlencoded } = require('body-parser');
+//const { urlencoded } = require('body-parser');
 const firebase = require('firebase');
 
 //firebase connection
@@ -62,7 +62,7 @@ database.ref().on("value", function(snapshot) {
 // Set up our express web application
 //const PORT = 8767;
 //const app = express();
-app.use(urlencoded({ extended: false }));
+//app.use(urlencoded({ extended: false }));
 
 // Create a route to handle incoming SMS messages
 router.post('/sms', (request, response) => {
@@ -72,7 +72,7 @@ router.post('/sms', (request, response) => {
   
 
   database.ref().set({
-    'clickCount': request.body.Body
+    clickCount : request.body.Body
   });
   response.send(`
     <Response>
