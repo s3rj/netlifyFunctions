@@ -5,7 +5,7 @@ const serverless = require('serverless-http');
 const express = require('express');
 const app = express();
 const router = express.Router();
-//const { urlencoded } = require('body-parser');
+const { urlencoded } = require('body-parser');
 const firebase = require('firebase');
 
 //firebase connection
@@ -17,27 +17,7 @@ var config = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 };
-firebase.initializeApp(config);
-var database = firebase.database();
 
-database.ref().on("value", function(snapshot) {
-
-    // Then we console.log the value of snapshot
-  console.log(snapshot.val());
-
-    // Then we change the html associated with the number.
-  //$("#click-value").text(snapshot.val().clickCount);
-
-    // Then update the clickCounter variable with data from the database.
-  clickCounter = snapshot.val().clickCount;
-
-    // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-    // Again we could have named errorObject anything we wanted.
-    }, function(errorObject) {
-
-    // In case of error this will print the error
-  console.log("The read failed: " + errorObject.code);
-});
 //fb snapshot
 // database.ref().on("value", function(snapshot) {
 
@@ -62,23 +42,44 @@ database.ref().on("value", function(snapshot) {
 // Set up our express web application
 //const PORT = 8767;
 //const app = express();
-//app.use(urlencoded({ extended: false }));
+app.use(urlencoded({ extended: false }));
 
 // Create a route to handle incoming SMS messages
 router.post('/sms', (request, response) => {
   console.log(
     `Incoming message from ${request.body.From}: ${request.body.Body}`
   );
-  
+  firebase.initializeApp(config);
+  var database = firebase.database();
+
+  database.ref().on("value", function (snapshot) {
+
+    // Then we console.log the value of snapshot
+    console.log(snapshot.val());
+
+    // Then we change the html associated with the number.
+    //$("#click-value").text(snapshot.val().clickCount);
+
+    // Then update the clickCounter variable with data from the database.
+    clickCounter = snapshot.val().clickCount;
+
+    // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+    // Again we could have named errorObject anything we wanted.
+  }, function (errorObject) {
+
+    // In case of error this will print the error
+    console.log("The read failed: " + errorObject.code);
+  });
+
 
   database.ref().set({
-    clickCount : request.body.Body
+    clickCount: request.body.Body
   });
   response.send(`
     <Response>
     </Response>
   `);
- 
+
 });
 
 // Create a route to handle the status update
