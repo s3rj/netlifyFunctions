@@ -53,7 +53,7 @@ router.post('/sms', (request, response) => {
   
 
   database.ref().set({
-    clickCount: request.body.Body
+    'clickCount': request.body.Body
   });
   response.send(`
     <Response>
