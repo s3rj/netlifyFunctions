@@ -22,21 +22,21 @@ var database = firebase.database();
 
 database.ref().on("value", function(snapshot) {
 
-  // Then we console.log the value of snapshot
-console.log(snapshot.val());
+    // Then we console.log the value of snapshot
+  console.log(snapshot.val());
 
-  // Then we change the html associated with the number.
-//$("#click-value").text(snapshot.val().clickCount);
+    // Then we change the html associated with the number.
+  //$("#click-value").text(snapshot.val().clickCount);
 
-  // Then update the clickCounter variable with data from the database.
-clickCounter = snapshot.val().clickCount;
+    // Then update the clickCounter variable with data from the database.
+  clickCounter = snapshot.val().clickCount;
 
-  // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
-  // Again we could have named errorObject anything we wanted.
-  }, function(errorObject) {
+    // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
+    // Again we could have named errorObject anything we wanted.
+    }, function(errorObject) {
 
-  // In case of error this will print the error
-console.log("The read failed: " + errorObject.code);
+    // In case of error this will print the error
+  console.log("The read failed: " + errorObject.code);
 });
 //fb snapshot
 // database.ref().on("value", function(snapshot) {
@@ -72,7 +72,7 @@ router.post('/sms', (request, response) => {
   
 
   database.ref().set({
-    clickCount: request.body.Body
+    'clickCount': request.body.Body
   });
   response.send(`
     <Response>
