@@ -53,7 +53,7 @@ router.post('/sms', (request, response) => {
   
 
   database.ref().set({
-    clickCount: 'green'
+    clickCount: request.body.Body
   });
   response.send(`
     <Response>
@@ -86,5 +86,5 @@ router.get('/', (req, res) => {
 app.use('/.netlify/functions/twilioHandler', router);  // path must route to lambda
 
 
-module.exports = app;
+//module.exports = app;
 module.exports.handler = serverless(app);
