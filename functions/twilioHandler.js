@@ -43,7 +43,7 @@ var database = firebase.database();
 // Set up our express web application
 //const PORT = 8767;
 //const app = express();
-app.use(urlencoded({ extended: false }));
+//app.use(urlencoded({ extended: false }));
 
 // Create a route to handle incoming SMS messages
 router.post('/sms', (request, response) => {
@@ -53,7 +53,7 @@ router.post('/sms', (request, response) => {
   
 
   database.ref().set({
-    clickCount: request.body.Body
+    clickCount: 'green'
   });
   response.send(`
     <Response>
