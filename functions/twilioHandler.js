@@ -61,7 +61,7 @@ router.post('/sms', (request, response) => {
     //$("#click-value").text(snapshot.val().clickCount);
 
     // Then update the clickCounter variable with data from the database.
-    clickCounter = snapshot.val().clickCount;
+    //clickCounter = snapshot.val().clickCount;
 
     // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
     // Again we could have named errorObject anything we wanted.
